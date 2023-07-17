@@ -4,7 +4,7 @@
   data() {
     return {
       store,
-      currentImage:0
+    //   currentImage:0
     }
   }
 }
@@ -29,21 +29,23 @@
 
         <div class="container bg-white">
             <div class="row">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center single-card" v-for="(card, index) in store.cards.data" :key="index">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center single-card mt-3" v-for="(card, index) in store.cards.data" :key="index">
                     <div class="img-box" v-for="(cardImage, i) in card.card_images" :key="i">
                         
                         <img :src="cardImage.image_url_small" alt="">
                     </div>
-
                     
-                    <div class="text-white">
+                    <div class="card-description">
                         
-                        {{ card.name }}
-                        
-                    </div>
-
-                    <div>
-                        TIPO
+                        <div class="text-white card-name">
+                            
+                            {{ card.name }}
+                            
+                        </div>
+    
+                        <div>
+                            {{ card.archetype }}
+                        </div>
                     </div>
                    
                         
@@ -58,14 +60,18 @@
   main {
     background-color: #D48F38;
 
-    .single-card {
-        background-color: #D48F38;
-    }
+   
 
     img {
         max-width: 168px;
     }
 
+    .card-description {
+        background-color: #D48F38;
+        max-width: 168px;
+        margin: auto;
+        
+    }
   
 
   }
