@@ -10,10 +10,10 @@
 </script>
 
 <template>
-    <header>
-        <div class="container">
-            <h1 class="text-primary">
-                Ho Bootstrap
+    <header class="bg-light">
+        <div>
+            <h1 class="m-0">
+                Yu-Gi-Oh API
             </h1>
         </div>
     </header>
