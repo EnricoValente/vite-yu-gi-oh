@@ -14,13 +14,22 @@
 <template>
     <main>
         
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-2 p-3">
-                <select v-model="store.searchArchetype" @keyup.enter="getArchetype()" class="form-select" aria-label="Default select example">
-                    <option v-for="(cardType, i) in store.cards.data" :value="cardType.archetype">{{ cardType.archetype }}</option>
+                <select v-model="store.searchArchetype" class="form-select" aria-label="Default select example">
+                    
+                    <option v-for="(archetype, i) in store.archetypes" :key="i" :value="archetype.archetype_name">{{ archetype.archetype_name }}</option>
                 </select>
-                   
             </div>
+
+            <div class="col-2">
+                
+                <button class="btn btn-primary" @click="getArchetype">
+                    Search
+                </button>
+            </div>
+
+                   
                     
         </div>
 
@@ -30,7 +39,7 @@
            <div class="box pt-5">
                <div class="row">
                    
-                   <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center single-card pt-3" v-for="(card, index) in store.cards.data" :key="index">
+                   <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center single-card pt-3" v-for="(card, index) in store.cards" :key="index">
    
                        <div class="img-box" v-for="(cardImage, i) in card.card_images" :key="i">
                            

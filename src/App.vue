@@ -11,30 +11,35 @@
     }
   },
   methods: {
-     getArchetype(){
-       axios
-            .get("https://db.ygoprodeck.com/api/v7/archetypes.php", {
-              params: {
+     
+    getArchetype(){
+        axios
+        .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' , {
+            params: {
                 archetype: this.store.searchArchetype
-               }
-             })
-             .then(response =>{
-              console.log(response.data)
-              this.store.archetypes = response.data
-            })
-            
-     }
-  },
-  created() {
-    axios
-        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
+            }
+        })
         .then(response => {
-          console.log(response.data);
-          this.store.cards = response.data
+            console.log(response.data);
+            this.store.cards = response.data.data
         });
-
-        this.getArchetype()
+    },
   },
+            
+     
+  created() {
+    
+        axios
+            .get("https://db.ygoprodeck.com/api/v7/archetypes.php")
+              
+            .then(response =>{
+              console.log(response.data);
+              this.store.archetypes = response.data
+            });
+            
+            this.getArchetype()
+        
+      },
   components: {
     HeaderComponent,
     MainComponent,
