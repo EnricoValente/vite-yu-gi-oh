@@ -11,19 +11,19 @@
     }
   },
   methods: {
-    // getArchetype(){
-    //   axios
-    //         .get("https://db.ygoprodeck.com/api/v7/archetypes.php", {
-    //           params: {
-    //             archetype: this.store.searchArchetype
-    //           }
-    //         })
-    //         .then(response =>{
-    //           console.log(response.data)
-    //           this.store.archetypes = response.data
-    //         })
+     getArchetype(){
+       axios
+            .get("https://db.ygoprodeck.com/api/v7/archetypes.php", {
+              params: {
+                archetype: this.store.searchArchetype
+               }
+             })
+             .then(response =>{
+              console.log(response.data)
+              this.store.archetypes = response.data
+            })
             
-    // }
+     }
   },
   created() {
     axios
