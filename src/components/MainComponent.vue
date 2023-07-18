@@ -4,7 +4,7 @@
   data() {
     return {
       store,
-    //   currentImage:0
+    
     }
   }
 }
@@ -16,20 +16,24 @@
         
         <div class="row">
             <div class="col-2 p-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Alien</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <select v-model="store.searchArchetype" @keyup.enter="getArchetype()" class="form-select" aria-label="Default select example">
+                    <option v-for="(cardType, i) in store.cards.data" :value="cardType.archetype">{{ cardType.archetype }}</option>
                 </select>
+                   
             </div>
+                    
         </div>
 
         
 
-        <div class="container bg-white">
+        <div class="container-sm bg-white">
+            <div class="bg-dark">
+              Found   cards
+            </div>
             <div class="row">
+                
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 text-center single-card mt-3" v-for="(card, index) in store.cards.data" :key="index">
+
                     <div class="img-box" v-for="(cardImage, i) in card.card_images" :key="i">
                         
                         <img :src="cardImage.image_url_small" alt="">
@@ -47,9 +51,11 @@
                             {{ card.archetype }}
                         </div>
                     </div>
-                   
+                    
                         
                 </div>
+                
+                    
             </div>
         </div>
 

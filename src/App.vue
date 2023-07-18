@@ -10,7 +10,21 @@
       store,
     }
   },
-  methods: {},
+  methods: {
+    // getArchetype(){
+    //   axios
+    //         .get("https://db.ygoprodeck.com/api/v7/archetypes.php", {
+    //           params: {
+    //             archetype: this.store.searchArchetype
+    //           }
+    //         })
+    //         .then(response =>{
+    //           console.log(response.data)
+    //           this.store.archetypes = response.data
+    //         })
+            
+    // }
+  },
   created() {
     axios
         .get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0")
@@ -18,6 +32,8 @@
           console.log(response.data);
           this.store.cards = response.data
         });
+
+        this.getArchetype()
   },
   components: {
     HeaderComponent,
