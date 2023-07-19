@@ -16,7 +16,7 @@
         axios
         .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0' , {
             params: {
-                archetype: this.store.searchArchetype
+              archetype: this.store.searchArchetype,
             }
         })
         .then(response => {
@@ -51,7 +51,7 @@
 
 <template>
     <HeaderComponent/>
-    <MainComponent/>
+    <MainComponent @search="getArchetype()"/>
     <FooterComponent/>
     
 </template>

@@ -24,7 +24,7 @@
 
             <div class="col-2">
                 
-                <button class="btn btn-primary" @click="getArchetype">
+                <button class="btn btn-primary" @click="$emit('search')">
                     Search
                 </button>
             </div>
